@@ -1,9 +1,10 @@
-resource "vercel_project" "with_git" {
-  name      = "personal-website"
-  framework = "nextjs"
+resource "vercel_project" "website" {
+  name           = "website"
+  framework      = "nextjs"
+  root_directory = "src"
 
   git_repository = {
     type = "github"
-    repo = "alopes2/personal-website"
+    repo = "alopes2/website"
   }
 }
