@@ -9,7 +9,12 @@ resource "vercel_project" "website" {
   }
 }
 
-resource "vercel_project_domain" "example_redirect" {
+resource "vercel_project_domain" "andrelopes_vercel" {
   project_id = vercel_project.website.id
   domain     = "andrelopes.vercel.app"
+}
+
+resource "vercel_project_domain" "default" {
+  project_id = vercel_project.website.id
+  domain     = "andrevitorlopes.com"
 }
