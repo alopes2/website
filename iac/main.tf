@@ -19,7 +19,7 @@ resource "vercel_project_domain" "default" {
   domain     = "andrevitorlopes.com"
 }
 
-resource "vercel_project_domain" "default" {
+resource "vercel_project_domain" "www" {
   project_id = vercel_project.website.id
   domain     = "www.andrevitorlopes.com"
 }
