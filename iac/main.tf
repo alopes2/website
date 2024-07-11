@@ -23,3 +23,8 @@ resource "vercel_project_domain" "www" {
   project_id = vercel_project.website.id
   domain     = "www.andrevitorlopes.com"
 }
+
+resource "vercel_deployment" "init" {
+  project_id = vercel_project.website.id
+  ref        = "main"
+}
