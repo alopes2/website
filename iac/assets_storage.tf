@@ -21,6 +21,14 @@ resource "aws_s3_object" "profile_picture" {
   source   = "../src/public/images/andre_lopes.jpg"
 }
 
+resource "aws_s3_bucket_versioning" "website_assets_versioning" {
+  provider = aws
+  bucket   = aws_s3_bucket.website_assets.bucket
+  versioning_configuration {
+    status = "Enabled"
+  }
+}
+
 resource "aws_s3_bucket_public_access_block" "website_bucket_public_access" {
   provider                = aws
   bucket                  = aws_s3_bucket.website_assets.id
