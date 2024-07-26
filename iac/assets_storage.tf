@@ -4,7 +4,7 @@ locals {
 
 resource "aws_s3_bucket" "website_assets" {
   provider = aws
-  bucket   = "website_assets"
+  bucket   = "website-assets"
 }
 
 
