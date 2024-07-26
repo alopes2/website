@@ -17,7 +17,7 @@ resource "aws_s3_object" "website_assets" {
 resource "aws_s3_object" "profile_picture" {
   provider = aws
   bucket   = aws_s3_bucket.website_assets.bucket
-  key      = "andre_lopes.jpg"
+  key      = "images/andre_lopes.jpg"
   source   = "../src/public/images/andre_lopes.jpg"
 }
 
