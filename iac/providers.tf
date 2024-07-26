@@ -12,4 +12,8 @@ terraform {
   }
 }
 
-provider "vercel" {}
+provider "vercel" {
+}
+
+provider "aws" {
+}
