@@ -92,7 +92,7 @@ resource "aws_cloudfront_distribution" "website_assets" {
 
     viewer_protocol_policy = "redirect-to-https"
 
-    response_headers_policy_id = aws_cloudfront_response_headers_policy.cors.id
+    # response_headers_policy_id = aws_cloudfront_response_headers_policy.cors.id
   }
 
   price_class = "PriceClass_100"
@@ -117,9 +117,6 @@ resource "aws_cloudfront_cache_policy" "website" {
   parameters_in_cache_key_and_forwarded_to_origin {
     headers_config {
       header_behavior = "none"
-      headers {
-
-      }
     }
     cookies_config {
       cookie_behavior = "all"
@@ -131,24 +128,24 @@ resource "aws_cloudfront_cache_policy" "website" {
   }
 }
 
-resource "aws_cloudfront_response_headers_policy" "cors" {
-  provider = aws
-  name     = "My-Website-Alow"
-  cors_config {
-    access_control_allow_credentials = true
+# resource "aws_cloudfront_response_headers_policy" "cors" {
+#   provider = aws
+#   name     = "My-Website-Alow"
+#   cors_config {
+#     access_control_allow_credentials = true
 
-    access_control_allow_headers {
-      items = ["*"]
-    }
+#     access_control_allow_headers {
+#       items = ["Accept", "Accept-Language", "Content-Language", "Content-Type"]
+#     }
 
-    access_control_allow_methods {
-      items = ["GET"]
-    }
+#     access_control_allow_methods {
+#       items = ["GET"]
+#     }
 
-    access_control_allow_origins {
-      items = [var.website_url]
-    }
+#     access_control_allow_origins {
+#       items = [var.website_url]
+#     }
 
-    origin_override = true
-  }
-}
+#     origin_override = true
+#   }
+# }
