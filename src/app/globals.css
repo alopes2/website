@@ -46,6 +46,7 @@ body {
   --size-16: 4rem;
   --size-20: 5rem;
   --size-40: 10rem;
+  --navbar-size: 6rem;
 
   margin: 0;
   background-color: var(--background-color);
