@@ -11,7 +11,7 @@ resource "aws_s3_bucket" "website_assets" {
 resource "aws_s3_object" "website_assets" {
   provider = aws
   bucket   = aws_s3_bucket.website_assets.bucket
-  key      = "images/"
+  key      = "images/posts/"
 }
 
 resource "aws_s3_object" "profile_picture" {
