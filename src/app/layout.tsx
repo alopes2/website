@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Andre Lopes',
-  description: 'Andre Lopes personal website',
+  description: 'Welcome to Andre Lopes Personal Website and Blog',
   authors: {
     name: 'Andre Lopes',
     url: 'https://github.com/alopes2',
@@ -24,12 +24,27 @@ export const metadata: Metadata = {
     'Code',
     'Developer',
   ],
-  icons: '/images/andre_lopes.jpg',
+  viewport: {
+    width: 'device-width',
+    initialScale: 1.0,
+  },
+  robots: {
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
+  },
+  alternates: {
+    canonical: 'https://www.andrevitorlopes.com/',
+  },
   openGraph: {
     type: 'website',
     images: [{ url: 'https://d2excru8gljel8.cloudfront.net/andre_lopes.jpg' }],
     title: 'Andre Lopes',
-    description: 'Andre Lopes personal website',
+    description: 'Welcome to Andre Lopes Personal Website and Blog!',
   },
 };
 
