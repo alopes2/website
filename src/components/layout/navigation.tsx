@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Logo from './logo';
 
 import classes from './navigation.module.scss';
+import Menu from './menu';
 
 export default function Navigation() {
   return (
@@ -9,16 +10,7 @@ export default function Navigation() {
       <Link href="/">
         <Logo />
       </Link>
-      <nav>
-        <ul>
-          <li>
-            <Link href="/posts">Posts</Link>
-          </li>
-          <li>
-            <Link href="/contact">Contact</Link>
-          </li>
-        </ul>
-      </nav>
+      <Menu />
     </header>
   );
 }

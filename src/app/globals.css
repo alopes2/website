@@ -48,6 +48,8 @@ body {
   --size-16: 4rem;
   --size-20: 5rem;
   --size-40: 10rem;
+
+  --default-spacing: 15%;
   --navbar-size: 6rem;
 
   margin: 0;
