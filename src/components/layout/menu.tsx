@@ -8,24 +8,28 @@ import { useState } from 'react';
 export default function Menu() {
   const [open, setOpen] = useState(false);
 
-  const navClasses = [classes.burger];
+  const navClasses = [classes.burger_wrapper];
 
   if (open) {
     navClasses.push(classes.open);
   }
 
   const onClickHandler = () => {
-    setOpen((prevState) => {
-      return !prevState;
-    });
+    if (window.innerWidth <= 768) {
+      setOpen((prevState) => {
+        return !prevState;
+      });
+    }
   };
 
   return (
     <nav className={classes.menu}>
-      <button onClick={onClickHandler} className={navClasses.join(' ')}>
-        <div />
-        <div />
-        <div />
+      <button className={navClasses.join(' ')} onClick={onClickHandler}>
+        <div className={classes.burger}>
+          <div />
+          <div />
+          <div />
+        </div>
       </button>
       <ul>
         <li>

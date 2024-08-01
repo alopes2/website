@@ -8,3 +8,12 @@
   padding: 0 var(--default-spacing);
   position: sticky;
 }
+
+@media (max-width: 768px) {
+  .header {
+    padding: 0;
+    a {
+      padding: 0 2rem;
+    }
+  }
+}

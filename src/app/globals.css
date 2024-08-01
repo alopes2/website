@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-body {
+:root {
   --color-grey-50: hsl(265, 55%, 96%);
   --color-grey-100: hsl(265, 19%, 88%);
   --color-grey-200: hsl(265, 7%, 70%);
@@ -51,7 +51,9 @@ body {
 
   --default-spacing: 15%;
   --navbar-size: 6rem;
+}
 
+body {
   margin: 0;
   background-color: var(--background-color);
   color: #252525;
@@ -71,4 +73,10 @@ a {
 button {
   font: inherit;
   cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --navbar-size: 4.5rem;
+  }
 }
