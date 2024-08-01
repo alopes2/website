@@ -4,12 +4,12 @@ export default function Summary() {
   return (
     <section className={classes.summary}>
       <p>
-        I'm a brazilian Full-Stack Software Engineer living in Berlin with years
-        of experience in web development.
+        I&aposm a brazilian Full-Stack Software Engineer living in Berlin with
+        years of experience in web development.
       </p>
       <p>
-        I'm passionated about cloud architecture, full-stack development, and
-        infrastructure as a code. I'm also passionated about sharing my
+        I&aposm passionated about cloud architecture, full-stack development,
+        and infrastructure as a code. I&aposm also passionated about sharing my
         knowledge through my blog posts and love to learn new things so I can
         write about them.
       </p>
