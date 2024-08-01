@@ -24,10 +24,6 @@ export const metadata: Metadata = {
     'Code',
     'Developer',
   ],
-  viewport: {
-    width: 'device-width',
-    initialScale: 1.0,
-  },
   robots: {
     googleBot: {
       index: true,

@@ -1,0 +1,17 @@
+.skills {
+  margin: var(--size-8) var(--default-spacing);
+
+  text-align: justify;
+  h2 {
+    font-size: var(--size-16);
+    color: var(--color-grey-800);
+  }
+}
+
+@media (max-width: 768px) {
+  .skills {
+    h2 {
+      font-size: var(--size-8);
+    }
+  }
+}

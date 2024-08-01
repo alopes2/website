@@ -1,25 +1,19 @@
-import FeaturedPosts from '@/components/home-page/featured-posts';
+import LatestPosts from '@/components/home-page/latest-posts';
 import Hero from '@/components/home-page/hero';
-import { getLatestPosts } from '@/lib/post-util';
-import { Suspense } from 'react';
+import Summary from '@/components/home-page/summary';
+import Skills from '@/components/home-page/skills';
 
 export const revalidate = 1;
 
 export const dynamic = 'force-dynamic';
 
-// TODO: Change/outsource this component
-async function FeaturedPostsBlock() {
-  const posts = await getLatestPosts();
-  return <FeaturedPosts posts={posts} />;
-}
-
 export default async function Home() {
   return (
     <>
       <Hero />
-      <Suspense fallback={<p>Fetching posts...</p>}>
-        <FeaturedPostsBlock />
-      </Suspense>
+      <Summary />
+      <Skills />
+      <LatestPosts />
     </>
   );
 }
