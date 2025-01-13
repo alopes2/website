@@ -3,14 +3,20 @@ import { getPostData } from '@/lib/post-util';
 import { notFound } from 'next/navigation';
 
 type PostDetailProps = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
 export const revalidate = 600;
 
-export async function generateMetadata({ params: { slug } }: PostDetailProps) {
+export async function generateMetadata(props: PostDetailProps) {
+  const params = await props.params;
+
+  const {
+    slug
+  } = params;
+
   const post = await getPostData(slug);
 
   if (!post) {
@@ -23,9 +29,13 @@ export async function generateMetadata({ params: { slug } }: PostDetailProps) {
   };
 }
 
-export default async function PostDetailPage({
-  params: { slug },
-}: PostDetailProps) {
+export default async function PostDetailPage(props: PostDetailProps) {
+  const params = await props.params;
+
+  const {
+    slug
+  } = params;
+
   const post = await getPostData(slug);
 
   if (!post) {

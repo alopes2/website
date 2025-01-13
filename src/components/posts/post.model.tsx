@@ -5,7 +5,7 @@ type Post = {
   excerpt: string;
   date: string;
   content?: string;
-  isFeatured: boolean;
+  isSubmitted: boolean;
 };
 
 export default Post;
