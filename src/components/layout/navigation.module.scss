@@ -7,11 +7,14 @@
   align-items: center;
   padding: 0 var(--default-spacing);
   position: sticky;
-  height: 52px;
+  min-height: 52px;
+  max-height: 52px;
 }
 
 @media (max-width: 768px) {
   .header {
+    min-height: 75px;
+    max-height: 75px;
     padding: 0;
     a {
       padding: 0 2rem;
