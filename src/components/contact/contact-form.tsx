@@ -45,7 +45,7 @@ export default function ContactForm() {
         </div>
 
         <div className={classes.actions}>
-          <FormButton />
+          <FormButton label="Send message" pendingLabel="Sending..." />
         </div>
       </form>
     </section>

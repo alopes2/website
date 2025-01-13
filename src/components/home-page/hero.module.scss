@@ -26,14 +26,13 @@
 }
 
 .hero h2 {
-  font-size: var(--size-10);
+  font-size: var(--size-8);
   margin: var(--size-4) 0;
-  // color: var(--color-grey-300);
   color: var(--color-primary-50);
 }
 
 .hero p {
-  font-size: var(--size-5);
+  font-size: var(--size-4);
   // color: var(--color-grey-200);
   width: 90%;
   max-width: 40rem;
