@@ -19,7 +19,7 @@ export default async function LatestPosts() {
 function LatestPostsComponent({ posts }: LatestPostsProps) {
   return (
     <section className={classes.latest}>
-      <h2>Latest Posts</h2>
+      <h2>Recent Posts</h2>
       <PostsGrid posts={posts} />
     </section>
   );

@@ -11,8 +11,7 @@ export default async function Home() {
   return (
     <>
       <Hero />
-      <Summary />
-      <Skills />
+      {/* <Skills /> */}
       <LatestPosts />
     </>
   );

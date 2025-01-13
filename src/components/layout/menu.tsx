@@ -4,6 +4,7 @@ import Link from 'next/link';
 
 import classes from './menu.module.scss';
 import { useState } from 'react';
+import NavLink from './nav-link';
 
 export default function Menu() {
   const [open, setOpen] = useState(false);
@@ -30,13 +31,16 @@ export default function Menu() {
           <div />
           <div />
         </div>
+        <div className={classes.close}>X</div>
       </button>
       <ul>
         <li>
-          <Link href="/posts">Posts</Link>
+          <NavLink exact href="/">
+            Home
+          </NavLink>
         </li>
         <li>
-          <Link href="/contact">Contact</Link>
+          <NavLink href="/posts">Posts</NavLink>
         </li>
       </ul>
     </nav>

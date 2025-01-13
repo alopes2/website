@@ -50,7 +50,7 @@
   --size-40: 10rem;
 
   --default-spacing: 15%;
-  --navbar-size: 6rem;
+  --navbar-size: 4rem;
 }
 
 body {
@@ -58,12 +58,23 @@ body {
   background-color: var(--background-color);
   color: #252525;
   font-family: 'Roboto', sans-serif;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  main {
+    flex: 1 0 auto;
+  }
+
+  footer,
+  header {
+    flex-shrink: 1;
+  }
 }
 
 h1,
 h2,
 h3 {
-  font-family: 'Oswald', 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 a {
@@ -85,7 +96,7 @@ q {
 
 @media (max-width: 768px) {
   :root {
-    --navbar-size: 4.5rem;
+    --navbar-size: 4rem;
     --default-spacing: 5%;
   }
 }

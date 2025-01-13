@@ -9,12 +9,17 @@ export default function Hero() {
           <Image
             src="/images/andre_lopes.jpg"
             alt="Andre Lopes"
-            width={300}
-            height={300}
+            width={200}
+            height={200}
           />
         </div>
-        <h1>Hi, I&apos;m Andre Lopes</h1>
+        <h2>Hi, I&apos;m Andre Lopes</h2>
         <p>I&apos;m a Full-stack Software Engineer</p>
+        <p className={classes.intro}>
+          Welcome to my personal page, where I blog about tech topics like AWS,
+          cloud architecture, programming, DevOps, Infrastructure as Code, and
+          other Software Engineering topics.
+        </p>
       </div>
     </section>
   );

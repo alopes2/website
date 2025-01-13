@@ -1,0 +1,12 @@
+.footer {
+  border: {
+    top: solid 1px #ccc;
+  }
+  text-align: center;
+  height: 50px;
+  vertical-align: middle;
+
+  p {
+    font-size: var(--size-4);
+  }
+}

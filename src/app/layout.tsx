@@ -4,6 +4,7 @@ import './globals.css';
 import Navigation from '@/components/layout/navigation';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Footer from '@/components/layout/footer';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -59,6 +60,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <Navigation />
         <main>{children}</main>
+        <Footer />
         <ToastContainer position="bottom-center" />
       </body>
     </html>
