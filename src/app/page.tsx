@@ -1,6 +1,5 @@
 import LatestPosts from '@/components/home-page/latest-posts';
 import Hero from '@/components/home-page/hero';
-import Summary from '@/components/home-page/summary';
 import Skills from '@/components/home-page/skills';
 
 export const revalidate = 1;
