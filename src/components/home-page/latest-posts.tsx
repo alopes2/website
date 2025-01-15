@@ -3,6 +3,7 @@ import Post from '../posts/post.model';
 import PostsGrid from '../posts/posts-grid';
 import classes from './latest-posts.module.scss';
 import { Suspense } from 'react';
+import Container from '@mui/material/Container';
 
 type LatestPostsProps = { posts: Post[] };
 
@@ -19,8 +20,10 @@ export default async function LatestPosts() {
 function LatestPostsComponent({ posts }: LatestPostsProps) {
   return (
     <section className={classes.latest}>
-      <h2>Recent Posts</h2>
-      <PostsGrid posts={posts} />
+      <Container>
+        <h2>Recent Posts</h2>
+        <PostsGrid posts={posts} />
+      </Container>
     </section>
   );
 }

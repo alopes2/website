@@ -27,41 +27,39 @@ export default function PostItem({ post }: PostItemProps) {
 
   return (
     <>
-      <Card className={classes.post} sx={{ width: 250 }}>
-        <CardMedia
-          image="/static/images/cards/contemplative-reptile.jpg"
-          title="green iguana"
-        >
-          <Image
-            className={classes.image}
-            src={imagePath}
-            alt={post.title}
-            width={345}
-            height={150}
-          />
-        </CardMedia>
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            {post.title}
-          </Typography>
-          <Typography
-            gutterBottom
-            variant="subtitle2"
-            component="time"
-            sx={{ color: 'text.secondary' }}
+      <Link href={linkPath}>
+        <Card className={classes.post} sx={{ width: 250 }}>
+          <CardMedia
+            image="/static/images/cards/contemplative-reptile.jpg"
+            title="green iguana"
           >
-            {date}
-          </Typography>
-          <Typography variant="body2" sx={{ marginTop: 1 }}>
-            {post.excerpt}
-          </Typography>
-        </CardContent>
-        <CardActions>
-          <Link href={linkPath}>
-            <Button size="small">Read more</Button>
-          </Link>
-        </CardActions>
-      </Card>
+            <Image
+              className={classes.image}
+              src={imagePath}
+              alt={post.title}
+              width={345}
+              height={150}
+            />
+          </CardMedia>
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="div">
+              {post.title}
+            </Typography>
+            <Typography
+              gutterBottom
+              variant="subtitle2"
+              component="time"
+              sx={{ color: 'text.secondary', fontStyle: 'italic' }}
+            >
+              {date}
+            </Typography>
+            <Typography variant="body2" sx={{ marginTop: 1 }}>
+              {post.excerpt}
+            </Typography>
+          </CardContent>
+          <CardActions></CardActions>
+        </Card>
+      </Link>
     </>
   );
 }

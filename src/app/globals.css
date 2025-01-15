@@ -49,7 +49,6 @@
   --size-20: 5rem;
   --size-40: 10rem;
 
-  --default-spacing: 15%;
   --navbar-size: 4rem;
 }
 
@@ -98,6 +97,5 @@ q {
 @media (max-width: 768px) {
   :root {
     --navbar-size: 4rem;
-    --default-spacing: 5%;
   }
 }
