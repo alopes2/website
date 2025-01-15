@@ -3,8 +3,12 @@
     top: solid 1px #ccc;
   }
   text-align: center;
-  height: 50px;
+  height: 4.375rem;
   vertical-align: middle;
+
+  div {
+    line-height: 0;
+  }
 
   p {
     font-size: var(--size-4);

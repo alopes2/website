@@ -7,8 +7,16 @@ export default function Navigation() {
   const currentYear = new Date().getFullYear();
   return (
     <footer className={classes.footer} style={{ flexShrink: 0 }}>
-      <Container sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr' }}>
-        <Box sx={{ textAlign: 'left' }}>
+      <Container
+        sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr', height: '100%' }}
+      >
+        <Box
+          sx={{
+            textAlign: 'left',
+            alignSelf: 'center',
+            height: 'fit-content',
+          }}
+        >
           <p>Copyright © {currentYear} Andre Lopes</p>
         </Box>
         <Box
