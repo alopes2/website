@@ -1,5 +1,5 @@
 'use client';
-import { Paper, useColorScheme, useTheme } from '@mui/material';
+import { useColorScheme } from '@mui/material';
 
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
@@ -8,20 +8,21 @@ import classes from './ColorMode.module.scss';
 
 export default function ColorMode() {
   const { mode, setMode } = useColorScheme();
-  const { typography } = useTheme();
   if (!mode) {
     return null;
   }
 
-  let icon = (
-    <LightModeIcon sx={{ color: 'white' }} onClick={() => setMode('light')} />
-  );
+  let newMode: 'light' | 'dark' = 'light';
+  let icon = <LightModeIcon sx={{ color: 'white' }} />;
 
   if (mode == 'light') {
-    icon = (
-      <DarkModeIcon sx={{ color: 'white' }} onClick={() => setMode('dark')} />
-    );
+    newMode = 'dark';
+    icon = <DarkModeIcon sx={{ color: 'white' }} />;
   }
 
-  return <div className={classes.colorMode}>{icon}</div>;
+  return (
+    <div className={classes.colorMode} onClick={() => setMode(newMode)}>
+      {icon}
+    </div>
+  );
 }

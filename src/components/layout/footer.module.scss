@@ -10,3 +10,11 @@
     font-size: var(--size-4);
   }
 }
+
+@media screen and (width <= 768) {
+  .footer {
+    p {
+      font-size: var(--size-4);
+    }
+  }
+}

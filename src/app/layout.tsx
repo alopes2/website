@@ -12,7 +12,7 @@ import '@fontsource/roboto/700.css';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from './theme';
-import ColorMode from '@/components/shared/ColorMode';
+import InitColorSchemeScript from '@mui/material/InitColorSchemeScript';
 import { CssBaseline } from '@mui/material';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -68,11 +68,8 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
         <AppRouterCacheProvider>
-          <ThemeProvider
-            theme={theme}
-            defaultMode="dark"
-            disableTransitionOnChange
-          >
+          <ThemeProvider theme={theme} defaultMode="dark">
+            <InitColorSchemeScript attribute="class" defaultMode="dark" />
             <CssBaseline enableColorScheme />
             <Navigation />
             <main>{children}</main>
