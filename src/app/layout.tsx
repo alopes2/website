@@ -1,19 +1,22 @@
 import type { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
+import { SpeedInsights } from '@vercel/speed-insights/next';
+
 import './globals.css';
-import Navigation from '@/components/layout/navigation';
-import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Footer from '@/components/layout/footer';
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 import { ThemeProvider } from '@mui/material/styles';
-import theme from './theme';
 import InitColorSchemeScript from '@mui/material/InitColorSchemeScript';
 import { CssBaseline } from '@mui/material';
+
+import Navigation from '@/components/layout/navigation';
+import { ToastContainer } from 'react-toastify';
+import Footer from '@/components/layout/footer';
+import theme from './theme';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -75,6 +78,7 @@ export default function RootLayout({
             <main>{children}</main>
             <Footer />
             <ToastContainer position="bottom-center" />
+            <SpeedInsights />
           </ThemeProvider>
         </AppRouterCacheProvider>
       </body>
