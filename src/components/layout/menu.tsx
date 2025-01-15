@@ -5,6 +5,9 @@ import Link from 'next/link';
 import classes from './menu.module.scss';
 import { useState } from 'react';
 import NavLink from './nav-link';
+import ColorMode from '../shared/ColorMode';
+import { Box } from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
 
 export default function Menu() {
   const [open, setOpen] = useState(false);
@@ -31,7 +34,9 @@ export default function Menu() {
           <div />
           <div />
         </div>
-        <div className={classes.close}>X</div>
+        <div className={classes.close}>
+          <CloseIcon fontSize="large" />
+        </div>
       </button>
       <ul>
         <li>
@@ -41,6 +46,11 @@ export default function Menu() {
         </li>
         <li>
           <NavLink href="/posts">Posts</NavLink>
+        </li>
+        <li className={classes.icons}>
+          <Box>
+            <ColorMode />
+          </Box>
         </li>
       </ul>
     </nav>

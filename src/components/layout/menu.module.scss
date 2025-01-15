@@ -20,8 +20,11 @@
   }
 
   li {
-    margin: 0;
     height: 100%;
+  }
+  .icons {
+    display: flex;
+    align-items: center;
   }
 
   .burger_wrapper {
@@ -79,6 +82,10 @@
 
     .close {
       display: none;
+      svg {
+        display: block;
+        margin: auto;
+      }
     }
 
     &.open {
@@ -101,13 +108,7 @@
       }
 
       .close {
-        height: 32px;
-        width: 32px;
         display: contents;
-        text-align: center;
-        vertical-align: middle;
-        font-size: 32px;
-        font-weight: bold;
         color: white;
       }
     }

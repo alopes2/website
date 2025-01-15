@@ -2,6 +2,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 import classes from './post-item.module.scss';
 import Post from './post.model';
+import {
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  CardMedia,
+  Typography,
+} from '@mui/material';
 
 type PostItemProps = {
   post: Post;
@@ -19,18 +27,41 @@ export default function PostItem({ post }: PostItemProps) {
 
   return (
     <>
-      <li className={classes.post}>
-        <Link href={linkPath}>
-          <div className={classes.image}>
-            <Image src={imagePath} alt={post.title} width={200} height={150} />
-          </div>
-          <div className={classes.content}>
-            <h3>{post.title}</h3>
-            <time>{date}</time>
-            <p>{post.excerpt}</p>
-          </div>
-        </Link>
-      </li>
+      <Card className={classes.post} sx={{ width: 250 }}>
+        <CardMedia
+          image="/static/images/cards/contemplative-reptile.jpg"
+          title="green iguana"
+        >
+          <Image
+            className={classes.image}
+            src={imagePath}
+            alt={post.title}
+            width={345}
+            height={150}
+          />
+        </CardMedia>
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            {post.title}
+          </Typography>
+          <Typography
+            gutterBottom
+            variant="subtitle2"
+            component="time"
+            sx={{ color: 'text.secondary' }}
+          >
+            {date}
+          </Typography>
+          <Typography variant="body2" sx={{ marginTop: 1 }}>
+            {post.excerpt}
+          </Typography>
+        </CardContent>
+        <CardActions>
+          <Link href={linkPath}>
+            <Button size="small">Read more</Button>
+          </Link>
+        </CardActions>
+      </Card>
     </>
   );
 }

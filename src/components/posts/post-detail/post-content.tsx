@@ -6,6 +6,7 @@ import type { DetailedHTMLProps, ReactElement } from 'react';
 import { Prism } from 'react-syntax-highlighter';
 import { atomDark } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import Markdown, { type Components, type ExtraProps } from 'react-markdown';
+import { Box, Container, Paper } from '@mui/material';
 
 type PostContentProps = {
   post: Post;
@@ -74,9 +75,13 @@ export default function PostContent({ post }: PostContentProps) {
   };
 
   return (
-    <article className={classes.content}>
-      <PostHeader title={post.title} image={imagePath} />
-      <Markdown components={customRedenrers}>{post.content}</Markdown>
+    <article>
+      <Container>
+        <Paper sx={{ height: '100vh', paddingX: 5, paddingY: 2, marginY: 5 }}>
+          <PostHeader title={post.title} image={imagePath} />
+          <Markdown components={customRedenrers}>{post.content}</Markdown>
+        </Paper>
+      </Container>
     </article>
   );
 }

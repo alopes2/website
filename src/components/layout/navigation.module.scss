@@ -1,21 +1,21 @@
 .header {
-  width: 100%;
-  height: var(--navbar-size);
   background-color: var(--color-primary-900);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 var(--default-spacing);
-  position: sticky;
-  min-height: 52px;
-  max-height: 52px;
+  height: var(--navbar-size);
+  position: fixed;
+  width: 100vw;
+  .headerContainer {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
 @media (max-width: 768px) {
   .header {
-    min-height: 75px;
-    max-height: 75px;
-    padding: 0;
+    .headerContainer {
+      padding: 0;
+    }
     a {
       padding: 0 2rem;
     }

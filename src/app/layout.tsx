@@ -5,6 +5,15 @@ import Navigation from '@/components/layout/navigation';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Footer from '@/components/layout/footer';
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
+import { ThemeProvider } from '@mui/material/styles';
+import theme from './theme';
+import ColorMode from '@/components/shared/ColorMode';
+import { CssBaseline } from '@mui/material';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -58,10 +67,19 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <Navigation />
-        <main>{children}</main>
-        <Footer />
-        <ToastContainer position="bottom-center" />
+        <AppRouterCacheProvider>
+          <ThemeProvider
+            theme={theme}
+            defaultMode="dark"
+            disableTransitionOnChange
+          >
+            <CssBaseline enableColorScheme />
+            <Navigation />
+            <main>{children}</main>
+            <Footer />
+            <ToastContainer position="bottom-center" />
+          </ThemeProvider>
+        </AppRouterCacheProvider>
       </body>
     </html>
   );

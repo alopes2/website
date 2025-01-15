@@ -8,10 +8,10 @@ type PostsGridProps = {
 
 export default function PostsGrid({ posts }: PostsGridProps) {
   return (
-    <ul className={classes.grid}>
+    <div className={classes.grid}>
       {posts.map((post) => (
         <PostItem key={post.slug} post={post} />
       ))}
-    </ul>
+    </div>
   );
 }
