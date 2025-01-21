@@ -4,6 +4,16 @@ terraform {
       source  = "vercel/vercel"
       version = "~> 1.11"
     }
+
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.84"
+    }
+
+    supabase = {
+      source  = "supabase/supabase"
+      version = "~> 1.5"
+    }
   }
 
   backend "s3" {
@@ -16,4 +26,7 @@ provider "vercel" {
 }
 
 provider "aws" {
+}
+
+provider "supabase" {
 }
