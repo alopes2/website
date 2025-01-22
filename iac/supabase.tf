@@ -17,10 +17,17 @@ resource "supabase_settings" "played_it_settings" {
   # })
 
   auth = jsonencode({
-    site_url                  = "http://localhost:3000",
-    external_github_client_id = var.github.client_id,
-    external_github_enabled   = true,
-    external_github_secret    = var.github.client_secret,
-    uri_allow_list            = "http://localhost:3000,https://andrevitorlopes.com"
+    site_url                     = "https://andrevitorlopes.com",
+    password_min_length          = 8,
+    password_required_characters = "abcdefghijklmnopqrstuvwxyz:ABCDEFGHIJKLMNOPQRSTUVWXYZ:0123456789"
+    uri_allow_list               = "http://localhost:3000,https://andrevitorlopes.com"
   })
+
+  # auth = jsonencode({
+  #   site_url                  = "http://localhost:3000",
+  #   external_github_client_id = var.github.client_id,
+  #   external_github_enabled   = true,
+  #   external_github_secret    = var.github.client_secret,
+  #   uri_allow_list            = "http://localhost:3000,https://andrevitorlopes.com"
+  # })
 }
