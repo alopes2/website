@@ -1,12 +1,10 @@
 'use server';
 
-import path from 'path';
-
 import type Post from '@/components/posts/post.model';
 import { MongoClient } from 'mongodb';
+import 'server-only';
 
 const connectionString = process.env.MONGODB_CONNECTION_STRING || '';
-const postsDirectory = path.join(process.cwd(), 'posts');
 
 export async function getPostData(
   postIdentifier: string
@@ -29,6 +27,56 @@ export async function getPostData(
     console.error('Fetching posts failed', e);
 
     return null;
+  }
+}
+
+export async function getPublishedPosts(): Promise<Post[]> {
+  let client: MongoClient;
+
+  try {
+    client = await MongoClient.connect(connectionString);
+
+    const db = client.db();
+
+    const result = await db
+      .collection('posts')
+      .find({ isPublished: true })
+      .project<Post>({})
+      .sort({ date: -1 })
+      .toArray();
+
+    client.close();
+
+    return result;
+  } catch (e: any) {
+    console.error('Fetching latest posts failed', e);
+
+    return [];
+  }
+}
+
+export async function getDraftPosts(): Promise<Post[]> {
+  let client: MongoClient;
+
+  try {
+    client = await MongoClient.connect(connectionString);
+
+    const db = client.db();
+
+    const result = await db
+      .collection('posts')
+      .find({ isPublished: { $in: [null, false] } })
+      .project<Post>({})
+      .sort({ date: -1 })
+      .toArray();
+
+    client.close();
+
+    return result;
+  } catch (e: any) {
+    console.error('Fetching latest posts failed', e);
+
+    return [];
   }
 }
 
