@@ -1,7 +1,7 @@
 'use server';
 
 import type Post from '@/components/posts/post.model';
-import { MongoClient } from 'mongodb';
+import { MongoClient, type Document, type Filter } from 'mongodb';
 import 'server-only';
 
 const connectionString = process.env.MONGODB_CONNECTION_STRING || '';
@@ -55,17 +55,25 @@ export async function getPublishedPosts(): Promise<Post[]> {
   }
 }
 
-export async function getDraftPosts(): Promise<Post[]> {
+export async function getPostsByType(type: string): Promise<Post[]> {
   let client: MongoClient;
 
   try {
     client = await MongoClient.connect(connectionString);
 
     const db = client.db();
+    let postsFilter: Filter<Document> = {};
+    if (type == 'draft') {
+      postsFilter = { isPublished: { $in: [null, false] } };
+    }
+
+    if (type === 'published') {
+      postsFilter = { isPublished: true };
+    }
 
     const result = await db
       .collection('posts')
-      .find({ isPublished: { $in: [null, false] } })
+      .find(postsFilter)
       .project<Post>({})
       .sort({ date: -1 })
       .toArray();
