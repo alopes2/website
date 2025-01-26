@@ -1,5 +1,5 @@
 import AdminPostsTabs from '@/components/posts/admin-posts-tab';
-import { getAllPosts, getDraftPosts, getPostsByType } from '@/lib/post-util';
+import { getAllPosts, getPostsByType } from '@/lib/post-util';
 import { Container } from '@mui/material';
 import type { Metadata } from 'next';
 
@@ -20,9 +20,5 @@ export default async function AllPostsPage({
   let { type } = await searchParams;
   type = type || 'all';
   const posts = await getPostsByType(type);
-  return (
-    <Container>
-      <AdminPostsTabs posts={posts} type={type} />
-    </Container>
-  );
+  return <AdminPostsTabs posts={posts} type={type} />;
 }

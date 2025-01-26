@@ -13,9 +13,10 @@ import {
 
 type PostItemProps = {
   post: Post;
+  admin: boolean;
 };
 
-export default function PostItem({ post }: PostItemProps) {
+export default function PostItem({ post, admin }: PostItemProps) {
   const date = new Date(post.date).toLocaleDateString('en-US', {
     day: 'numeric',
     month: 'long',
@@ -23,7 +24,10 @@ export default function PostItem({ post }: PostItemProps) {
   });
   const imagePath = `${process.env.ASSETS_PATH}/images/posts/${post.image}`;
 
-  const linkPath = `/posts/${post.slug}`;
+  let linkPath = `/posts/${post.slug}`;
+  if (admin) {
+    linkPath = `/admin${linkPath}`;
+  }
 
   return (
     <>

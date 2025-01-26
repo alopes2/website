@@ -30,31 +30,6 @@ export async function getPostData(
   }
 }
 
-export async function getPublishedPosts(): Promise<Post[]> {
-  let client: MongoClient;
-
-  try {
-    client = await MongoClient.connect(connectionString);
-
-    const db = client.db();
-
-    const result = await db
-      .collection('posts')
-      .find({ isPublished: true })
-      .project<Post>({})
-      .sort({ date: -1 })
-      .toArray();
-
-    client.close();
-
-    return result;
-  } catch (e: any) {
-    console.error('Fetching latest posts failed', e);
-
-    return [];
-  }
-}
-
 export async function getPostsByType(type: string): Promise<Post[]> {
   let client: MongoClient;
 
@@ -123,7 +98,7 @@ export async function getLatestPosts(): Promise<Post[]> {
 
     const result = await db
       .collection('posts')
-      .find()
+      .find({ isPublished: true })
       .project<Post>({})
       .sort({ date: -1 })
       .limit(6)

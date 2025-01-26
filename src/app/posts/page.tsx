@@ -1,5 +1,5 @@
 import AllPosts from '@/components/posts/all-post';
-import { getPublishedPosts } from '@/lib/post-util';
+import { getPostsByType } from '@/lib/post-util';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -8,6 +8,6 @@ export const metadata: Metadata = {
 };
 
 export default async function AllPostsPage() {
-  const posts = await getPublishedPosts();
+  const posts = await getPostsByType('published');
   return <AllPosts posts={posts} />;
 }

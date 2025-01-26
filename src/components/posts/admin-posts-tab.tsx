@@ -20,7 +20,7 @@ export default function AdminPostsTabs({ posts, type }: AdminPostsTabsProps) {
   return (
     <>
       <AdminPostsForm type={type} />
-      <PostsGrid posts={posts} />
+      <PostsGrid admin posts={posts} />
     </>
   );
 }
