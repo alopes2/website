@@ -1,0 +1,41 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  margin: {
+    bottom: 1rem;
+  }
+  width: 100%;
+
+  // border: {
+  //   bottom: 1px solid #fff;
+  // }
+
+  .button {
+    background: none;
+    border: none;
+
+    &.active {
+      border: 1px solid #fff;
+    }
+  }
+
+  div {
+    border-bottom: 1px solid #fff;
+    min-height: 100%;
+    width: 100%;
+  }
+}
+
+.form {
+  padding: 1rem;
+  .textarea {
+    width: 100%;
+    field-sizing: content;
+    background-color: transparent;
+    resize: none;
+    border: none;
+    outline: none;
+    min-height: 10rem;
+  }
+}

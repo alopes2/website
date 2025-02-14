@@ -1,10 +1,10 @@
 import NewPost from '@/components/posts/new-post/new-post';
-import classes from './page.module.scss';
+import { Container } from '@mui/material';
 
 export default function NewPostPage() {
   return (
-    <section className={classes.section}>
+    <Container>
       <NewPost />
-    </section>
+    </Container>
   );
 }
