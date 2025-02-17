@@ -7,14 +7,12 @@
   vertical-align: middle;
 
   a {
-    color: inherit;
-
+    &,
     &:active,
     &:visited {
+      margin: 0.1rem;
       color: inherit;
     }
-
-    margin: 0.1rem;
   }
 
   div {
