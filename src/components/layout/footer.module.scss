@@ -6,6 +6,17 @@
   height: 4.375rem;
   vertical-align: middle;
 
+  a {
+    color: inherit;
+
+    &:active,
+    &:visited {
+      color: inherit;
+    }
+
+    margin: 0.1rem;
+  }
+
   div {
     line-height: 0;
   }
@@ -18,7 +29,7 @@
 @media screen and (width <= 768) {
   .footer {
     p {
-      font-size: var(--size-4);
+      font-size: var(--size-3);
     }
   }
 }

@@ -14,7 +14,7 @@ export default function PostContent({ post }: PostContentProps) {
   return (
     <article>
       <Container>
-        <Paper sx={{ height: '100vh', paddingX: 5, paddingY: 2, marginY: 5 }}>
+        <Paper sx={{ paddingX: 5, paddingY: 2, marginY: 5 }}>
           <PostHeader title={post.title} image={imagePath} />
           <AppMarkdown slug={post.slug} content={post.content}></AppMarkdown>
         </Paper>

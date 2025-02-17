@@ -5,5 +5,11 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 2rem;
-  align-content: center;
+  align-items: center;
+}
+
+@media screen and (width <= 768) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
 }
