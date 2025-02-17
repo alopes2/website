@@ -7,11 +7,11 @@ type PostsGridProps = {
   admin?: boolean;
 };
 
-export default function PostsGrid({ posts }: PostsGridProps) {
+export default function PostsGrid({ posts, admin = false }: PostsGridProps) {
   return (
     <div className={classes.grid}>
       {posts.map((post) => (
-        <PostItem admin key={post.slug} post={post} />
+        <PostItem admin={admin} key={post.slug} post={post} />
       ))}
     </div>
   );
