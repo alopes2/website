@@ -3,16 +3,12 @@
 import {
   useState,
   type ChangeEvent,
-  type ChangeEventHandler,
   type DragEventHandler,
   type DragEvent,
-  type FormEvent,
-  useRef,
 } from 'react';
 import classes from './new-post.module.scss';
 import AppMarkdown from '@/components/shared/AppMarkdown';
 import { Box, Paper } from '@mui/material';
-import { text } from 'stream/consumers';
 
 export default function NewPost() {
   const [mode, setMode] = useState<'edit' | 'view'>('edit');
@@ -67,22 +63,19 @@ export default function NewPost() {
     if (files.length === 0) return;
 
     const file = files[0];
+    // TODO: Handle file upload to S3, add a placeholder text for the image, and then replace the placeholder text with the image when the image is uploaded
     const textarea = event.target as HTMLTextAreaElement;
-
     textarea.focus();
-    const position = getCaretLine(textarea, event.clientX, event.clientY);
 
-    setStory((previousValue: string) => {
-      const textBeforePosition = previousValue.slice(0, position);
-      const currentLineNumber = textBeforePosition.split('\n').length - 1;
+    const insertPosition = getCaretLine(textarea, event.clientX, event.clientY);
 
-      const lines = previousValue.split('\n');
-      const newLines = [...lines];
+    setStory((prevStory: string) => {
+      const lines = prevStory.split('\n');
+      const insertLineNumber =
+        prevStory.slice(0, insertPosition).split('\n').length - 1;
 
-      // Insert the dropped text at the next line (currentLineNumber + 1)
-      newLines.splice(currentLineNumber + 1, 0, 'droppedText');
-
-      return newLines.join('\n');
+      lines.splice(insertLineNumber + 1, 0, 'droppedText');
+      return lines.join('\n');
     });
   };
 
@@ -91,17 +84,24 @@ export default function NewPost() {
       <div className={classes.header}>
         <button
           onClick={() => setMode('edit')}
-          className={[classes.button, classes.active].join(' ')}
+          className={[classes.button, mode === 'edit' && classes.active].join(
+            ' '
+          )}
         >
           Edit
         </button>
-        <button onClick={() => setMode('view')} className={classes.button}>
+        <button
+          onClick={() => setMode('view')}
+          className={[classes.button, mode === 'view' && classes.active].join(
+            ' '
+          )}
+        >
           View
         </button>
         <div></div>
       </div>
-      <Paper>
-        <form className={classes.form}>
+      <form className={classes.form}>
+        <Paper>
           {mode === 'edit' ? (
             <>
               <textarea
@@ -116,8 +116,8 @@ export default function NewPost() {
           ) : (
             <AppMarkdown slug={''} content={story} />
           )}
-        </form>
-      </Paper>
+        </Paper>
+      </form>
     </Box>
   );
 }

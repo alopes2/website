@@ -1,28 +1,35 @@
 .header {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: stretch;
   margin: {
     bottom: 1rem;
   }
   width: 100%;
 
-  // border: {
-  //   bottom: 1px solid #fff;
-  // }
-
   .button {
     background: none;
-    border: none;
+    border: {
+      top: none;
+      left: none;
+      right: none;
+      bottom: 1px solid var(--mui-palette-divider);
+    }
 
     &.active {
-      border: 1px solid #fff;
+      border: {
+        top: 1px solid var(--mui-palette-divider);
+        bottom: none;
+        left: 1px solid var(--mui-palette-divider);
+        right: 1px solid var(--mui-palette-divider);
+      }
     }
   }
 
   div {
-    border-bottom: 1px solid #fff;
-    min-height: 100%;
+    border-bottom: 1px solid var(--mui-palette-divider);
+    display: flex;
+    align-items: center;
     width: 100%;
   }
 }
