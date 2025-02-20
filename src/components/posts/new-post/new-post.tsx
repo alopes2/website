@@ -63,38 +63,24 @@ export default function NewPost() {
   ) => {
     event.preventDefault();
 
-    // Get the dropped files
     const files = Array.from(event.dataTransfer.files);
     if (files.length === 0) return;
 
-    const file = files[0]; // Handle the first file
-    // console.log(files);
-    // if (!file.type.startsWith('text/')) {
-    //   alert('Please drop a text file');
-    //   return;
-    // }
-
-    // Read the file content
-    // const text = await file.text();
-    // console.log(text);
-
-    // Get the textarea and mouse position
+    const file = files[0];
     const textarea = event.target as HTMLTextAreaElement;
 
-    // Get the character index at the drop position
-    textarea.focus(); // Ensure the textarea is focused for selection
+    textarea.focus();
     const position = getCaretLine(textarea, event.clientX, event.clientY);
-    console.log(position);
+
     setStory((previousValue: string) => {
-      // Find which line we're on by counting newlines before our position
       const textBeforePosition = previousValue.slice(0, position);
       const currentLineNumber = textBeforePosition.split('\n').length - 1;
 
       const lines = previousValue.split('\n');
       const newLines = [...lines];
 
-      // Insert the dropped text at the correct line
-      newLines.splice(currentLineNumber, 0, 'droppedText');
+      // Insert the dropped text at the next line (currentLineNumber + 1)
+      newLines.splice(currentLineNumber + 1, 0, 'droppedText');
 
       return newLines.join('\n');
     });
