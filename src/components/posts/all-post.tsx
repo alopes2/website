@@ -11,7 +11,7 @@ export default function AllPosts({ posts }: AllPostsProps) {
   return (
     <section className={classes.posts}>
       <Container>
-        <Typography variant="h2" sx={{ marginBottom: 3 }}>
+        <Typography variant="h2" sx={{ marginBottom: 3, marginTop: 4 }}>
           All Posts
         </Typography>
         <PostsGrid posts={posts} />

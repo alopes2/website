@@ -4,7 +4,7 @@ import PostsGrid from '../posts/posts-grid';
 import classes from './latest-posts.module.scss';
 import { Suspense } from 'react';
 import Container from '@mui/material/Container';
-import LoadingSpinner from '@/components/ui/loading-spinner';
+import SkeletonLoader from '@/components/ui/skeleton-loader';
 
 // Separate component for fetching posts
 async function LatestPostsComponent() {
@@ -17,7 +17,7 @@ export default function LatestPosts() {
     <section className={classes.latest}>
       <Container>
         <h2>Recent Posts</h2>
-        <Suspense fallback={<LoadingSpinner message="Fetching posts..." />}>
+        <Suspense fallback={<SkeletonLoader count={6} />}>
           <LatestPostsComponent />
         </Suspense>
       </Container>
