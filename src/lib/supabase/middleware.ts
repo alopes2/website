@@ -41,7 +41,6 @@ export async function updateSession(request: NextRequest) {
 
   if (
     !user &&
-    request.nextUrl.pathname.startsWith('/admin') &&
     !request.nextUrl.pathname.endsWith('login') &&
     !request.nextUrl.pathname.endsWith('callback')
   ) {

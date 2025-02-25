@@ -40,9 +40,11 @@ export default function PostItem({ post, admin }: PostItemProps) {
             <Image
               className={classes.image}
               src={imagePath}
-              alt={post.title}
+              alt={`Cover image for ${post.title}`}
               width={345}
               height={150}
+              priority={false}
+              sizes="(max-width: 768px) 100vw, 345px"
             />
           </Link>
         </CardMedia>

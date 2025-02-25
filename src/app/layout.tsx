@@ -20,24 +20,38 @@ import theme from './theme';
 
 const inter = Inter({ subsets: ['latin'] });
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: '#121212',
+};
+
 export const metadata: Metadata = {
-  title: 'Andre Lopes',
-  description: 'Welcome to Andre Lopes Personal Website and Blog',
+  metadataBase: new URL('https://www.andrevitorlopes.com'),
+  title: {
+    template: '%s | Andre Lopes',
+    default: 'Andre Lopes | Full-stack Software Engineer',
+  },
+  description:
+    'Personal website and blog of Andre Lopes, a Full-stack Software Engineer writing about AWS, cloud architecture, programming, DevOps, and more.',
   authors: {
     name: 'Andre Lopes',
     url: 'https://github.com/alopes2',
   },
   creator: 'Andre Lopes',
   keywords: [
-    'Andre',
-    'Lopes',
+    'Andre Lopes',
     'Software Engineer',
-    'Software',
-    'Engineer',
-    'Code',
-    'Developer',
+    'Full-stack Developer',
+    'AWS',
+    'Cloud Architecture',
+    'Programming',
+    'DevOps',
+    'Infrastructure as Code',
   ],
   robots: {
+    index: true,
+    follow: true,
     googleBot: {
       index: true,
       follow: true,
@@ -47,19 +61,40 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: 'https://www.andrevitorlopes.com/',
+    canonical: '/',
   },
   openGraph: {
     type: 'website',
-    images: [{ url: 'https://d2excru8gljel8.cloudfront.net/andre_lopes.jpg' }],
-    title: 'Andre Lopes',
-    description: 'Welcome to Andre Lopes Personal Website and Blog!',
+    locale: 'en_US',
+    url: '/',
+    siteName: 'Andre Lopes',
+    images: [
+      {
+        url: 'https://d2excru8gljel8.cloudfront.net/andre_lopes.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Andre Lopes',
+      },
+    ],
+    title: 'Andre Lopes | Full-stack Software Engineer',
+    description:
+      'Personal website and blog of Andre Lopes, a Full-stack Software Engineer writing about AWS, cloud architecture, programming, DevOps, and more.',
   },
-};
-
-export const viewport: Viewport = {
-  width: 'device-width',
-  initialScale: 1,
+  twitter: {
+    card: 'summary_large_image',
+    creator: '@andrelopes',
+    title: 'Andre Lopes | Full-stack Software Engineer',
+    description:
+      'Personal website and blog of Andre Lopes, a Full-stack Software Engineer writing about AWS, cloud architecture, programming, DevOps, and more.',
+    images: ['https://d2excru8gljel8.cloudfront.net/andre_lopes.jpg'],
+  },
+  other: {
+    'facebook-domain-verification': 'your-facebook-domain-verification-code',
+    'google-site-verification': 'your-google-site-verification-code',
+    'ai-block': 'true',
+    'ai-training': 'disallow',
+    'ai-indexing': 'disallow',
+  },
 };
 
 export default function RootLayout({

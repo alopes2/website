@@ -15,25 +15,45 @@ export async function generateMetadata(
   props: PostDetailProps
 ): Promise<Metadata> {
   const params = await props.params;
-
   const { slug } = params;
-
   const post = await getPostData(slug);
 
   if (!post) {
     notFound();
   }
 
+  const imageUrl = `${process.env.ASSETS_PATH}/images/posts/${post.image}`;
+  const postUrl = `/posts/${slug}`;
+
   return {
     title: post.title,
     description: post.excerpt,
+    alternates: {
+      canonical: postUrl,
+    },
     openGraph: {
       type: 'article',
-      images: [
-        { url: `${process.env.ASSETS_PATH}/images/posts/${post.image}` },
-      ],
+      url: postUrl,
       title: post.title,
       description: post.excerpt,
+      images: [
+        {
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
+      publishedTime: post.date,
+      modifiedTime: post.date,
+      authors: ['Andre Lopes'],
+      tags: ['software engineering', 'blog', 'tech'],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.excerpt,
+      images: [imageUrl],
     },
   };
 }

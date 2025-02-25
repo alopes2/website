@@ -4,8 +4,12 @@ import { Container } from '@mui/material';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'All my posts',
-  description: 'A list of everything I blogged about',
+  title: 'Admin: Manage Posts',
+  description: 'Admin dashboard to manage blog posts',
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 type PropsWithSearchParams = {

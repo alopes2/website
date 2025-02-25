@@ -1,3 +1,5 @@
-export default function PostDetailsLoading() {
-  return <h2 style={{ textAlign: 'center' }}>Loading...</h2>;
+import LoadingSpinner from '@/components/ui/loading-spinner';
+
+export default function AdminPostsLoading() {
+  return <LoadingSpinner message="Loading posts..." />;
 }

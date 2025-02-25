@@ -1,7 +1,17 @@
+import { NextResponse, type NextRequest } from 'next/server';
 import { updateSession } from '@/lib/supabase/middleware';
-import { type NextRequest } from 'next/server';
 
 export async function middleware(request: NextRequest) {
+  // Skip processing for static assets
+  if (
+    request.nextUrl.pathname.startsWith('/_next/') ||
+    request.nextUrl.pathname.startsWith('/static/') ||
+    request.nextUrl.pathname.match(/\.(jpg|jpeg|png|gif|svg|ico|css|js)$/) ||
+    !request.nextUrl.pathname.startsWith('/admin')
+  ) {
+    return NextResponse.next();
+  }
+
   return await updateSession(request);
 }
 
